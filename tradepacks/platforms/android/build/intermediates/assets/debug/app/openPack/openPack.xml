@@ -1,0 +1,10 @@
+﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+
+    <GridLayout rows="auto,auto,auto" columns="auto,auto" cssClass="bg" horizontalAlignment="center">
+      <Image row="0" col="1" src="res://goldrare" id="goldPack" stretch="none" horizontalAlignment="center" />
+      <ActivityIndicator row="0" col="1" busy="{{ packIsOpening }}" cssClass="pack-opening" />
+      <Label text="400" row="1" col="1" cssClass="coins-text" horizontalAlignment="center"></Label>
+      <Button row="2" col="1" text="OPEN PACK" tap="openPackEvent" cssClass="btn-open" horizontalAlignment="center" />
+    </GridLayout>
+    
+</Page>

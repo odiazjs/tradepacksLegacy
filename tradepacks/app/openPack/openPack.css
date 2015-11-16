@@ -1,0 +1,21 @@
+﻿.bg {
+    background-color: #f4f4f4;
+}
+
+.coins-text {
+    margin: 100 5 5 5;
+}
+
+.btn-open {
+    font-size: 14;
+    color: #fff;
+    font-weight: 300;
+    width: 200;
+    height: 35;
+    background-color: #388295;
+    margin: 5 5 5 5;
+}
+
+.pack-opening {
+    margin: 200 5 5 5;
+}
