@@ -1,10 +1,97 @@
-﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
+   
+  <GridLayout 
+    id="packWrapper" 
+    rows="50,50,50,50,50,50" 
+    columns="80,80" 
+    horizontalAlignment="center" 
+    verticalAlignment="center" 
+    cssClass="{{ packHasOpened ? 'card-bg' : 'wrapper-bg' }}" >
 
-    <GridLayout rows="auto,auto,auto" columns="auto,auto" cssClass="bg" horizontalAlignment="center">
-      <Image row="0" col="1" src="res://goldrare" id="goldPack" stretch="none" horizontalAlignment="center" />
-      <ActivityIndicator row="0" col="1" busy="{{ packIsOpening }}" cssClass="pack-opening" />
-      <Label text="400" row="1" col="1" cssClass="coins-text" horizontalAlignment="center"></Label>
-      <Button row="2" col="1" text="OPEN PACK" tap="openPackEvent" cssClass="btn-open" horizontalAlignment="center" />
-    </GridLayout>
+      <Label id="rating"
+             text="{{ rating }}" row="0" col="0" 
+             horizontalAlignment="center" 
+             cssClass="player-rating"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
     
+      <Label id="position"
+             text="{{ position }}" row="1" col="0" 
+             horizontalAlignment="center" 
+             cssClass="player-position"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
+    
+      <Image id="clubBadge"
+             src="{{ clubBadgeUrl }}" row="1" col="0" 
+             horizontalAlignment="center"
+             cssClass="player-clubBadge"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
+
+      <Image id="nation"
+             src="{{ nationFlagUrl }}" row="1" col="0"
+             horizontalAlignment="center"
+             cssClass="player-nation"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
+
+      <Image id="headshot"
+             src="{{ headShotImgUrl }}" row="1" col="1" 
+             horizontalAlignment="center"
+             cssClass="player-headshot"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
+
+      <Label id="name"
+             text="{{ name }}" row="2" colspan="2" 
+             stretch="none" 
+             horizontalAlignment="center" 
+             cssClass="player-name"
+             visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
+    
+      <ActivityIndicator row="2" colspan="2" 
+                         width="90" height="90" 
+                         busy="{{ packIsOpening }}" 
+                         cssClass="pack-opening" />
+
+      <GridLayout
+        id="attrsLeft"
+        rows="auto,auto,auto" 
+        columns="auto" 
+        row="3" col="0" 
+        horizontalAlignment="center" 
+        verticalAlignment="center" 
+        cssClass="player-attrs"
+        visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
+        <Label text="{{ position == 'GK' ? attributes['div'] + ' DIV' :  attributes['pac'] + ' PAC' }}" row="0" col="0" horizontalAlignment="right"/>
+        <Label text="{{ position == 'GK' ? attributes['han'] + ' HAN' :  attributes['sho'] + ' SHO' }}" row="1" col="0" horizontalAlignment="right"/>
+        <Label text="{{ position == 'GK' ? attributes['kic'] + ' KIC' :  attributes['pas'] + ' PAS' }}" row="2" col="0" horizontalAlignment="right"/>
+      </GridLayout>
+
+      <GridLayout id="attrsRight"
+                  rows="auto,auto,auto" 
+                  columns="auto" 
+                  row="3" col="1" 
+                  horizontalAlignment="center" 
+                  verticalAlignment="center" 
+                  cssClass="player-attrs"
+                  visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
+        <Label text="{{ position == 'GK' ? attributes['ref'] + ' REF' :  attributes['dri'] + ' DRI' }}" row="0" col="0" horizontalAlignment="left"/>
+        <Label text="{{ position == 'GK' ? attributes['spd'] + ' SPD' :  attributes['def'] + ' DEF' }}" row="1" col="0" horizontalAlignment="left"/>
+        <Label text="{{ position == 'GK' ? attributes['pos'] + ' POS' :  attributes['phy'] + ' PHY' }}" row="2" col="0" horizontalAlignment="left"/>
+      </GridLayout>
+    
+      <ActivityIndicator row="2" colspan="2" 
+                         width="90" height="90" 
+                         busy="{{ packIsOpening }}" 
+                         cssClass="pack-opening" />
+    
+      <Button id="openPackBtn" 
+              row="6" colspan="2" 
+              text="OPEN PACK" 
+              tap="openPackEvent" 
+              cssClass="btn-open" 
+              horizontalAlignment="center"
+              visibility="{{ !packHasOpened ? 'visible' : 'collapsed' }}"/>   
+  
+  </GridLayout>
+
+  
+  
 </Page>

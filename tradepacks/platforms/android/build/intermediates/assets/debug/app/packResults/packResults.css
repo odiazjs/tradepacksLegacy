@@ -1,0 +1,38 @@
+﻿.bg {
+    background-color: #f4f4f4;
+}
+
+.player-rating{
+    font-size: 20;
+    color: #000000;
+    font-weight: bolder;
+    margin: 15 0 0 0;
+}
+
+.player-position{
+    font-size: 12;
+    color: #000000;
+    font-weight: bold;
+    margin: -15 0 0 0;
+}
+
+.player-name{
+    font-size: 14;
+    color: #000000;
+    font-weight: bold;
+    margin: 20 0 0 0;
+}
+
+.player-attrs{
+    font-size: 14;
+    color: #000000;
+    font-weight: bold;
+    margin: -10 0 0 0;
+}
+
+.card-bg{
+    background-image: url('res://goldrare');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0;
+}

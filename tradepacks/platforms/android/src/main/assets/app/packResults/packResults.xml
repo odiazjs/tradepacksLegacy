@@ -1,0 +1,33 @@
+﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
+
+  <GridLayout id="packResult"
+              rows="50,50,50,50,50,50"
+              columns="80,80"
+              horizontalAlignment="center"
+              verticalAlignment="center"
+              cssClass="card-bg"
+              visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
+
+    <Label text="81" row="0" col="0" horizontalAlignment="center" cssClass="player-rating"/>
+    <Label text="CAM" row="1" col="0" horizontalAlignment="center" cssClass="player-position"/>
+    <Image src="res://barcelona" row="1" col="0" horizontalAlignment="center" width="30" height="30"/>
+
+    <Image src="res://messi" row="1" col="1" horizontalAlignment="center" width="90" height="90"/>
+
+    <Label text="MESSI" row="2" colspan="2" stretch="none" horizontalAlignment="center" cssClass="player-name"/>
+    <ActivityIndicator row="2" colspan="2" width="90" height="90" busy="{{ packIsOpening }}" cssClass="pack-opening" />
+
+    <GridLayout rows="auto,auto,auto" columns="auto" row="3" col="0" horizontalAlignment="center" verticalAlignment="center" cssClass="player-attrs">
+      <Label text="79 PAC" row="0" col="0" horizontalAlignment="center"/>
+      <Label text="79 PAC" row="1" col="0" horizontalAlignment="center"/>
+      <Label text="79 PAC" row="2" col="0" horizontalAlignment="center"/>
+    </GridLayout>
+
+    <GridLayout rows="auto,auto,auto" columns="auto" row="3" col="1" horizontalAlignment="center" verticalAlignment="center" cssClass="player-attrs">
+      <Label text="79 PAC" row="0" col="0" horizontalAlignment="center"/>
+      <Label text="79 PAC" row="1" col="0" horizontalAlignment="center"/>
+      <Label text="79 PAC" row="2" col="0" horizontalAlignment="center"/>
+    </GridLayout>
+  </GridLayout>
+
+</Page>
