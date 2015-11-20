@@ -19,6 +19,17 @@
     margin: 5 5 5 5;
 }
 
+.btn-more-cards{
+    font-size: 14;
+    color: #fff;
+    font-weight: 300;
+    width: 200;
+    height: 35;
+    background-color: #388295;
+    margin: 5 5 5 5;
+    opacity: 0.0;
+}
+
 .pack-opening {
     margin: 5 5 5 5;
 }
@@ -47,6 +58,14 @@
     opacity: 0.0;
 }
 
+.totw-player-name{
+    font-size: 14;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 20 0 0 0;
+    opacity: 0.0;
+}
+
 .player-clubBadge{
     margin: 0 0 0 0;
     opacity: 0.0;
@@ -70,8 +89,34 @@
     opacity: 0.0;
 }
 
-.card-bg{
+.totw-player-attrs{
+    font-size: 14;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: -10 0 0 0;
+    opacity: 0.0;
+}
+
+.legend{
+    background-image: url('res://legend');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.totwgold{
+    background-image: url('res://goldinform');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.raregold{
     background-image: url('res://goldrare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gold{
+    background-image: url('res://gold');
     background-repeat: no-repeat;
     background-size: contain;
 }

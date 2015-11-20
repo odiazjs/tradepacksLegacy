@@ -6,7 +6,7 @@
     columns="80,80" 
     horizontalAlignment="center" 
     verticalAlignment="center" 
-    cssClass="{{ packHasOpened ? 'card-bg' : 'wrapper-bg' }}" >
+    cssClass="{{ packHasOpened ? color : 'wrapper-bg' }}" >
 
       <Label id="rating"
              text="{{ rating }}" row="0" col="0" 
@@ -42,10 +42,11 @@
              text="{{ name }}" row="2" colspan="2" 
              stretch="none" 
              horizontalAlignment="center" 
-             cssClass="player-name"
+             cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
              visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
     
-      <ActivityIndicator row="2" colspan="2" 
+      <ActivityIndicator id="packIsLoading"
+                         row="2" colspan="2" 
                          width="90" height="90" 
                          busy="{{ packIsOpening }}" 
                          cssClass="pack-opening" />
@@ -57,7 +58,7 @@
         row="3" col="0" 
         horizontalAlignment="center" 
         verticalAlignment="center" 
-        cssClass="player-attrs"
+        cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}"
         visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
         <Label text="{{ position == 'GK' ? attributes['div'] + ' DIV' :  attributes['pac'] + ' PAC' }}" row="0" col="0" horizontalAlignment="right"/>
         <Label text="{{ position == 'GK' ? attributes['han'] + ' HAN' :  attributes['sho'] + ' SHO' }}" row="1" col="0" horizontalAlignment="right"/>
@@ -69,8 +70,8 @@
                   columns="auto" 
                   row="3" col="1" 
                   horizontalAlignment="center" 
-                  verticalAlignment="center" 
-                  cssClass="player-attrs"
+                  verticalAlignment="center"
+                  cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}"
                   visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
         <Label text="{{ position == 'GK' ? attributes['ref'] + ' REF' :  attributes['dri'] + ' DRI' }}" row="0" col="0" horizontalAlignment="left"/>
         <Label text="{{ position == 'GK' ? attributes['spd'] + ' SPD' :  attributes['def'] + ' DEF' }}" row="1" col="0" horizontalAlignment="left"/>
@@ -88,10 +89,15 @@
               tap="openPackEvent" 
               cssClass="btn-open" 
               horizontalAlignment="center"
-              visibility="{{ !packHasOpened ? 'visible' : 'collapsed' }}"/>   
+              visibility="{{ !packHasOpened ? 'visible' : 'collapsed' }}"/>
+
+    <Button id="moreCardsBtn"
+              row="6" colspan="2"
+              text="VIEW ALL"
+              tap="viewAllEvent"
+              cssClass="btn-more-cards"
+              horizontalAlignment="center"
+              visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}"/>
   
   </GridLayout>
-
-  
-  
 </Page>

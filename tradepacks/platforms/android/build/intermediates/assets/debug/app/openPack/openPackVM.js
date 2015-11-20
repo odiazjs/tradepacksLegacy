@@ -9,6 +9,7 @@ var openPackModel = {
     nationFlagUrl: '',
     headShotImgUrl: '',
     name: '',
+    color: '',
     attributes: [],
     packIsOpening: false,
     showPackWrapper: true,

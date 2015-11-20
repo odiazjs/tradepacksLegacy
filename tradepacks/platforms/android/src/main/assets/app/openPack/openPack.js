@@ -3,11 +3,18 @@ var appSettings = require("application-settings");
 var http = require('http');
 var utils = require('../shared/utils');
 var view = require("ui/core/view");
+var platform = require("platform");
+var application = require("application");
+var vibrator = require("nativescript-vibrate");
+var dialog = require("nativescript-dialog");
 var frames = require('ui/frame');
 var obervableArrayModule = require('data/observable-array');
 var model = new obervableArrayModule.ObservableArray();
 
+var playersList = [];
+
 function pageLoaded(args) {
+
     var page = args.object;
     page.bindingContext = openPackModel;
     page.addCssFile("openPack.css");
@@ -18,20 +25,28 @@ function pageLoaded(args) {
 
     var pack = page.getViewById("packWrapper");
     pack.animate({
-        translate: { x: 0, y: 50 },
-        scale: { x: 1.1, y: 1.1 },
+        translate: {
+            x: 0,
+            y: 50
+        },
+        scale: {
+            x: 1.1,
+            y: 1.1
+        },
         duration: 400
     });
 }
 
 exports.openPackEvent = function (args) {
 
+    vibrator.vibration(100);
     openPackModel.set("packIsOpening", true);
 
-    var url = "http://gdsgt.net/getjson/json2.php?user=1&pack=1";
-    var playersList = [];
+    var url = "http://gdsgt.net/getjson/json2.php?user=1&pack=3";
 
     http.getJSON(url).then(function (response) {
+
+        playersList = [];
 
         if (typeof response != "undefined" && response != null) {
             response.forEach(function (item) {
@@ -46,6 +61,7 @@ exports.openPackEvent = function (args) {
             openPackModel.nationFlagUrl = playersList[i].nation_image;
             openPackModel.headShotImgUrl = playersList[i].headshot_image;
             openPackModel.name = playersList[i].name.toUpperCase();
+            openPackModel.color = playersList[i].color;
 
             if (playersList[i].position == "GK") {
                 openPackModel.attributes["div"] = playersList[i].attributes["fut.attribute.DIV"];
@@ -69,10 +85,17 @@ exports.openPackEvent = function (args) {
         }
 
     }, function (ex) {
-        console.log(ex);
+        throw new "Unable to get pack (" + ex + ")";
     });
-    
+
 };
+
+exports.viewAllEvent = function (args) {
+    frames.topmost().navigate({
+        moduleName: "./packResults/packResults",
+        context: playersList
+    });
+}
 
 function handlePackAnimation(args) {
 
@@ -80,7 +103,9 @@ function handlePackAnimation(args) {
     var parent = sender.parent;
     if (parent) {
         var pack = view.getViewById(parent, "packWrapper");
+        var packIsLoading = view.getViewById(parent, "packIsLoading");
         var openPackBtn = view.getViewById(parent, "openPackBtn");
+        var moreCardsBtn = view.getViewById(parent, "moreCardsBtn");
         var rating = view.getViewById(parent, "rating");
         var position = view.getViewById(parent, "position");
         var clubBadge = view.getViewById(parent, "clubBadge");
@@ -91,33 +116,66 @@ function handlePackAnimation(args) {
         var attrsRight = view.getViewById(parent, "attrsRight");
 
         rating.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         position.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         clubBadge.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         nation.animate({
-            scale: { x: 1, y: 1 }
+            scale: {
+                x: 1,
+                y: 1
+            }
         });
         headshot.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         name.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         attrsLeft.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
         });
         attrsRight.animate({
-            scale: { x: 2, y: 2 }
+            scale: {
+                x: 2,
+                y: 2
+            }
+        });
+        moreCardsBtn.animate({
+            scale: {
+                x: 0,
+                y: 0
+            }
         });
 
         if (openPackBtn) {
             openPackBtn.animate({
-                scale: { x: 0, y: 0 },
+                scale: {
+                    x: 0,
+                    y: 0
+                },
                 duration: 600,
                 opacity: 0
             });
@@ -125,79 +183,118 @@ function handlePackAnimation(args) {
 
         if (pack) {
             pack.animate({
-                translate: { x: 0, y: -25 },
-                scale: { x: 1.2, y: 1.2 },
-                duration: 1500
+                translate: {
+                    x: 0,
+                    y: -25
+                },
+                scale: {
+                    x: 1.2,
+                    y: 1.2
+                },
+                duration: 800
             }).then(function () {
                 pack.animate({
                     opacity: 0,
-                    duration: 1000
+                    duration: 800
                 }).then(function () {
                     openPackModel.set("packIsOpening", false);
                     openPackModel.set("packHasOpened", true);
                     pack.animate({
                         opacity: 1,
-                        duration: 1000
+                        duration: 800
                     }).then(function () {
                         if (clubBadge) {
                             clubBadge.animate({
                                 opacity: 1,
                                 duration: 500,
-                                scale: { x: 0.6, y: 0.6}
-                            }).then(function(){
-                              if (nation) {
-                                  nation.animate({
-                                    opacity: 1,
-                                    duration: 500,
-                                    scale: { x: 0.5, y: 0.5 }
-                                }).then(function () {
-                                    if (position) {
-                                        position.animate({
-                                            opacity: 1,
-                                            duration: 500,
-                                            scale: { x: 1, y: 1 }
-                                        }).then(function () {
-                                            if (rating) {
-                                                rating.animate({
-                                                    opacity: 1,
-                                                    duration: 500,
-                                                    scale: { x: 1, y: 1 }
-                                                }).then(function () {
-                                                    if (attrsLeft && attrsRight) {
-                                                        attrsLeft.animate({
-                                                            opacity: 1,
-                                                            duration: 500,
-                                                            scale: { x: 1, y: 1 }
-                                                        })
-                                                        attrsRight.animate({
-                                                            opacity: 1,
-                                                            duration: 500,
-                                                            scale: { x: 1, y: 1 }
-                                                        }).then(function () {
-                                                            if (headshot && name) {
-                                                                headshot.animate({
-                                                                    opacity: 1,
-                                                                    duration: 500,
-                                                                    scale: { x: 1.3, y: 1.3 }
-                                                                })
-                                                                name.animate({
-                                                                    opacity: 1,
-                                                                    duration: 500,
-                                                                    scale: { x: 1, y: 1 }
-                                                                })
-                                                            }
-                                                        })
-                                                    }
-                                                })
-                                            }
-                                        })
-                                    }
-                                })
-                            }
-                        })
-
-                    }
-                  })
+                                scale: {
+                                    x: 0.6,
+                                    y: 0.6
+                                }
+                            }).then(function () {
+                                if (nation) {
+                                    nation.animate({
+                                        opacity: 1,
+                                        duration: 500,
+                                        scale: {
+                                            x: 0.5,
+                                            y: 0.5
+                                        }
+                                    }).then(function () {
+                                        if (position) {
+                                            position.animate({
+                                                opacity: 1,
+                                                duration: 500,
+                                                scale: {
+                                                    x: 1,
+                                                    y: 1
+                                                }
+                                            }).then(function () {
+                                                if (rating) {
+                                                    rating.animate({
+                                                        opacity: 1,
+                                                        duration: 500,
+                                                        scale: {
+                                                            x: 1,
+                                                            y: 1
+                                                        }
+                                                    }).then(function () {
+                                                        if (attrsLeft && attrsRight) {
+                                                            attrsLeft.animate({
+                                                                opacity: 1,
+                                                                duration: 500,
+                                                                scale: {
+                                                                    x: 1,
+                                                                    y: 1
+                                                                }
+                                                            })
+                                                            attrsRight.animate({
+                                                                opacity: 1,
+                                                                duration: 500,
+                                                                scale: {
+                                                                    x: 1,
+                                                                    y: 1
+                                                                }
+                                                            }).then(function () {
+                                                                if (headshot && name) {
+                                                                    headshot.animate({
+                                                                        opacity: 1,
+                                                                        duration: 500,
+                                                                        scale: {
+                                                                            x: 1.3,
+                                                                            y: 1.3
+                                                                        }
+                                                                    })
+                                                                    name.animate({
+                                                                        opacity: 1,
+                                                                        duration: 500,
+                                                                        scale: {
+                                                                            x: 1,
+                                                                            y: 1
+                                                                        }
+                                                                    })
+                                                                    if (moreCardsBtn) {
+                                                                        moreCardsBtn.animate({
+                                                                            opacity: 1,
+                                                                            duration: 500,
+                                                                            scale: {
+                                                                                x: 1,
+                                                                                y: 1
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                }
+                                                            })
+                                                        }
+                                                    })
+                                                }
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
                 })
             });
         }

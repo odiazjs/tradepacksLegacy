@@ -1,33 +1,89 @@
 ﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
+  <ListView items="{{ cards }}">
+    <ListView.itemTemplate>
 
-  <GridLayout id="packResult"
-              rows="50,50,50,50,50,50"
-              columns="80,80"
-              horizontalAlignment="center"
-              verticalAlignment="center"
-              cssClass="card-bg"
-              visibility="{{ packHasOpened ? 'visible' : 'collapsed' }}">
+<GridLayout
+    id="packWrapper"
+    rows="50,50,50,50,50,50"
+    columns="80,80"
+    horizontalAlignment="center"
+    verticalAlignment="center"
+    cssClass="{{ color }}">
 
-    <Label text="81" row="0" col="0" horizontalAlignment="center" cssClass="player-rating"/>
-    <Label text="CAM" row="1" col="0" horizontalAlignment="center" cssClass="player-position"/>
-    <Image src="res://barcelona" row="1" col="0" horizontalAlignment="center" width="30" height="30"/>
+        <Label id="rating"
+               text="{{ rating }}" row="0" col="0"
+               horizontalAlignment="center"
+               cssClass="player-rating"
+               />
 
-    <Image src="res://messi" row="1" col="1" horizontalAlignment="center" width="90" height="90"/>
+        <Label id="position"
+               text="{{ position }}" row="1" col="0"
+               horizontalAlignment="center"
+               cssClass="player-position"
+               />
 
-    <Label text="MESSI" row="2" colspan="2" stretch="none" horizontalAlignment="center" cssClass="player-name"/>
-    <ActivityIndicator row="2" colspan="2" width="90" height="90" busy="{{ packIsOpening }}" cssClass="pack-opening" />
+        <Image id="clubBadge"
+               src="{{ clubBadgeUrl }}" row="1" col="0"
+               horizontalAlignment="center"
+               cssClass="player-clubBadge"
+               />
 
-    <GridLayout rows="auto,auto,auto" columns="auto" row="3" col="0" horizontalAlignment="center" verticalAlignment="center" cssClass="player-attrs">
-      <Label text="79 PAC" row="0" col="0" horizontalAlignment="center"/>
-      <Label text="79 PAC" row="1" col="0" horizontalAlignment="center"/>
-      <Label text="79 PAC" row="2" col="0" horizontalAlignment="center"/>
-    </GridLayout>
+        <Image id="nation"
+               src="{{ nationFlagUrl }}" row="1" col="0"
+               horizontalAlignment="center"
+               cssClass="player-nation"
+               />
 
-    <GridLayout rows="auto,auto,auto" columns="auto" row="3" col="1" horizontalAlignment="center" verticalAlignment="center" cssClass="player-attrs">
-      <Label text="79 PAC" row="0" col="0" horizontalAlignment="center"/>
-      <Label text="79 PAC" row="1" col="0" horizontalAlignment="center"/>
-      <Label text="79 PAC" row="2" col="0" horizontalAlignment="center"/>
-    </GridLayout>
-  </GridLayout>
+        <Image id="headshot"
+               src="{{ headShotImgUrl }}" row="1" col="1"
+               horizontalAlignment="center"
+               cssClass="player-headshot"
+               />
 
+        <Label id="name"
+               text="{{ name }}" row="2" colspan="2"
+               stretch="none"
+               horizontalAlignment="center"
+               cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
+               />
+
+        <ActivityIndicator id="packIsLoading"
+                           row="2" colspan="2"
+                           width="90" height="90"
+                           busy="{{ packIsOpening }}"
+                           cssClass="pack-opening" />
+
+        <GridLayout
+          id="attrsLeft"
+          rows="auto,auto,auto"
+          columns="auto"
+          row="3" col="0"
+          horizontalAlignment="center"
+          verticalAlignment="center"
+          cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
+          <Label text="{{ position == 'GK' ? attributes['div'] + ' DIV' :  attributes['pac'] + ' PAC' }}" row="0" col="0" horizontalAlignment="right"/>
+          <Label text="{{ position == 'GK' ? attributes['han'] + ' HAN' :  attributes['sho'] + ' SHO' }}" row="1" col="0" horizontalAlignment="right"/>
+          <Label text="{{ position == 'GK' ? attributes['kic'] + ' KIC' :  attributes['pas'] + ' PAS' }}" row="2" col="0" horizontalAlignment="right"/>
+        </GridLayout>
+
+        <GridLayout id="attrsRight"
+                    rows="auto,auto,auto"
+                    columns="auto"
+                    row="3" col="1"
+                    horizontalAlignment="center"
+                    verticalAlignment="center"
+                    cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
+          <Label text="{{ position == 'GK' ? attributes['ref'] + ' REF' :  attributes['dri'] + ' DRI' }}" row="0" col="0" horizontalAlignment="left"/>
+          <Label text="{{ position == 'GK' ? attributes['spd'] + ' SPD' :  attributes['def'] + ' DEF' }}" row="1" col="0" horizontalAlignment="left"/>
+          <Label text="{{ position == 'GK' ? attributes['pos'] + ' POS' :  attributes['phy'] + ' PHY' }}" row="2" col="0" horizontalAlignment="left"/>
+        </GridLayout>
+
+        <ActivityIndicator row="2" colspan="2"
+                           width="90" height="90"
+                           busy="{{ packIsOpening }}"
+                           cssClass="pack-opening" />
+      </GridLayout>
+      
+    </ListView.itemTemplate>
+  </ListView>
 </Page>

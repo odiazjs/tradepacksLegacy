@@ -1,11 +1,13 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.tradepacks",
-		"tns-android": {
-			"version": "1.4.0"
-		}
-	},
-	"dependencies": {
-		"tns-core-modules": "1.4.0"
-	}
+  "nativescript": {
+    "id": "org.nativescript.tradepacks",
+    "tns-android": {
+      "version": "1.4.0"
+    }
+  },
+  "dependencies": {
+    "nativescript-dialog": "0.0.5",
+    "nativescript-vibrate": "^1.1.0",
+    "tns-core-modules": "1.4.0"
+  }
 }

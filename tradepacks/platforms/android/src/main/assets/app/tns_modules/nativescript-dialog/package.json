@@ -1,0 +1,59 @@
+{
+  "name": "nativescript-dialog",
+  "version": "0.0.5",
+  "description": "A NativeScript plugin for iOS and Android that allows you to create custom dialog.",
+  "main": "index.js",
+  "nativescript": {
+    "id": "org.nativescript.dialog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enchev/nativescript-dialog.git"
+  },
+  "keywords": [
+    "NativeScript",
+    "native",
+    "script",
+    "dialog",
+    "custom",
+    "alert",
+    "UIAlertView",
+    "UIAlertController",
+    "ios",
+    "android"
+  ],
+  "author": {
+    "name": "Vladimir Enchev",
+    "email": "vladimir.enchev@gmail.com",
+    "url": "https://github.com/enchev"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/enchev/nativescript-dialog/issues"
+  },
+  "homepage": "https://github.com/enchev/nativescript-dialog",
+  "gitHead": "29e3d6f5ab51f9d08cd437cdc45bb290505f76e2",
+  "_id": "nativescript-dialog@0.0.5",
+  "scripts": {},
+  "_shasum": "bd9a9541d5d877eba934276e872636784bfe3424",
+  "_from": "nativescript-dialog@*",
+  "_npmVersion": "2.14.7",
+  "_nodeVersion": "4.2.2",
+  "_npmUser": {
+    "name": "enchev",
+    "email": "vladimir.enchev@gmail.com"
+  },
+  "dist": {
+    "shasum": "bd9a9541d5d877eba934276e872636784bfe3424",
+    "tarball": "http://registry.npmjs.org/nativescript-dialog/-/nativescript-dialog-0.0.5.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "enchev",
+      "email": "vladimir.enchev@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/nativescript-dialog/-/nativescript-dialog-0.0.5.tgz",
+  "readme": "ERROR: No README data found!"
+}
