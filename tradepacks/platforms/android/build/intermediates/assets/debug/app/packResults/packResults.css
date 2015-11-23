@@ -19,7 +19,7 @@
     margin: 5 5 5 5;
 }
 
-.btn-more-cards{
+.btn-more-cards {
     font-size: 14;
     color: #fff;
     font-weight: 300;
@@ -33,55 +33,63 @@
     margin: 5 5 5 5;
 }
 
-.player-rating{
+.player-rating {
     font-size: 20;
     color: #000000;
     font-weight: bolder;
     margin: 15 0 0 0;
+    opacity: 1.0;
 }
 
-.player-position{
+.player-position {
     font-size: 12;
     color: #000000;
     font-weight: bold;
     margin: -15 0 0 0;
+    opacity: 1.0;
 }
 
-.player-name{
+.player-name {
     font-size: 14;
     color: #000000;
     font-weight: bold;
     margin: 20 0 0 0;
+    opacity: 1.0;
 }
 
-.totw-player-name{
+.totw-player-name {
     font-size: 14;
     color: #FFFFFF;
     font-weight: bold;
     margin: 20 0 0 0;
+    opacity: 1.0;
 }
 
-.player-clubBadge{
+.player-clubBadge {
     height: 30;
     width: 30;
     margin: 0 0 0 0;
+    opacity: 1.0;
 }
 
-.player-nation{
+.player-nation {
     height: 25;
     width: 30;
     margin: 0 0 -60 0;
+    opacity: 1.0;
 }
 
 .player-headshot{
     margin: 0 0 -11 -15;
+    opacity: 1.0;
 }
 
-.player-attrs{
+.player-attrs {
     font-size: 14;
     color: #000000;
     font-weight: bold;
     margin: -10 0 0 0;
+    opacity: 1.0;
 }
 
 .totw-player-attrs{
@@ -89,6 +97,7 @@
     color: #FFFFFF;
     font-weight: bold;
     margin: -10 0 0 0;
+    opacity: 1.0;
 }
 
 .legend{
@@ -111,12 +120,6 @@
 
 .gold{
     background-image: url('res://gold');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.card-bg{
-    background-image: url('res://goldrare');
     background-repeat: no-repeat;
     background-size: contain;
 }

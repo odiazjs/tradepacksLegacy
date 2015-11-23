@@ -1,48 +1,63 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
 
+  <Page.actionBar>
+    <ActionBar title="" android.icon=""/>
+  </Page.actionBar>
+
   <GridLayout
     id="packOptions"
-    rows="150,150"
+    rows="150,150,150"
     columns="150,150"
     horizontalAlignment="center"
-    verticalAlignment="center">
+    verticalAlignment="top">
+
+    <GridLayout
+     id="topNav"
+     rows="40,40,40"
+     columns="150,150"
+     horizontalAlignment="center"
+     verticalAlignment="top">
+
+      <Image src="res://coins" row="0" col="0" />
+
+    </GridLayout>
 
     <Image packType="bronze"
-           src="res://bronzerare" row="0" col="0" 
+           src="res://bronzerare" row="1" col="0" 
            cssClass="pack-option-image"
            tap="selectPack" />
     
-    <Label text="BRONZE PACKS" row="0" col="0"
+    <Label text="BRONZE PACKS" row="1" col="0"
                horizontalAlignment="center"
                verticalAlignment="bottom"
                cssClass="pack-label" />
     
     <Image packType="silver"
-           src="res://silverare" row="0" col="1" 
+           src="res://silverare" row="1" col="1" 
            cssClass="pack-option-image"
            tap="selectPack" />
     
-    <Label text="SILVER PACKS" row="0" col="1"
+    <Label text="SILVER PACKS" row="1" col="1"
                horizontalAlignment="center"
                verticalAlignment="bottom"
                cssClass="pack-label" />
     
     <Image packType="gold"
-           src="res://goldrare" row="1" col="0" 
+           src="res://goldrare" row="2" col="0" 
            cssClass="pack-option-image"
            tap="selectPack" />
     
-    <Label text="GOLD PACKS" row="1" col="0"
+    <Label text="GOLD PACKS" row="2" col="0"
                horizontalAlignment="center"
                verticalAlignment="bottom"
                cssClass="pack-label" />
     
     <Image packType="special"
-           src="res://special" row="1" col="1" 
+           src="res://special" row="2" col="1" 
            cssClass="pack-option-image"
            tap="selectPack" />
     
-    <Label text="SPECIAL PACKS" row="1" col="1"
+    <Label text="SPECIAL PACKS" row="2" col="1"
                horizontalAlignment="center"
                verticalAlignment="bottom"
                cssClass="pack-label" />

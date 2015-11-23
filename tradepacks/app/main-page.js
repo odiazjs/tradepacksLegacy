@@ -1,6 +1,7 @@
 var packOptionVM = require("./main-view-model");
 var vibrator = require("nativescript-vibrate");
 var frames = require('ui/frame');
+var actionBarModule = require("ui/action-bar");
 
 function pageLoaded(args) {
     var page = args.object;

@@ -3,13 +3,7 @@ var appSettings = require("application-settings");
 var http = require('http');
 var utils = require('../shared/utils');
 var view = require("ui/core/view");
-var platform = require("platform");
-var application = require("application");
-var vibrator = require("nativescript-vibrate");
-var dialog = require("nativescript-dialog");
 var frames = require('ui/frame');
-var obervableArrayModule = require('data/observable-array');
-var model = new obervableArrayModule.ObservableArray();
 
 var playersList = [];
 var packType = '';
@@ -45,7 +39,7 @@ function pageLoaded(args) {
 
 exports.openPackEvent = function (args) {
 
-    vibrator.vibration(100);
+    //vibrator.vibration(100);
     openPackModel.set("packIsOpening", true);
 
     var packTypeDictionary = {};
