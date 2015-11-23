@@ -6,7 +6,7 @@
     columns="80,80" 
     horizontalAlignment="center" 
     verticalAlignment="center" 
-    cssClass="{{ packHasOpened ? color : 'wrapper-bg' }}" >
+    cssClass="{{ packHasOpened ? color : packType }}" >
 
       <Label id="rating"
              text="{{ rating }}" row="0" col="0" 

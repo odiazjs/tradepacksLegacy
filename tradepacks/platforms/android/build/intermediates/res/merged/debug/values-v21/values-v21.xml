@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/colors.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/colors.xml -->
     <eat-comment/>
     <color name="ns_accent">#3d5afe</color>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="AppThemeBase">
         <item name="android:datePickerStyle">@style/SpinnerDatePicker</item>
         <item name="android:timePickerStyle">@style/SpinnerTimePicker</item>       
     </style>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
@@ -230,12 +230,12 @@
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.Material.TextView.SpinnerItem"/>
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation">
     </style>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
         <item name="android:elevation">4dp</item>
     </style>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme.Material">
         <item name="android:windowNoTitle">true</item>
@@ -271,7 +271,7 @@
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
         <item name="android:colorButtonNormal">?attr/colorButtonNormal</item>
     </style>
-    <!-- From: file:/C:/Users/Oscar/Desktop/Branches/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/C:/Users/odiaz/Desktop/Branches/tradepacks-updated/tradepacks/tradepacks/platforms/android/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="SpinnerDatePicker" parent="android:Widget.Material.Light.DatePicker">
         <item name="android:datePickerMode">spinner</item>

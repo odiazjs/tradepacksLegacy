@@ -11,6 +11,7 @@ var openPackModel = {
     name: '',
     color: '',
     attributes: [],
+    packType: '',
     packIsOpening: false,
     showPackWrapper: true,
     packHasOpened: false

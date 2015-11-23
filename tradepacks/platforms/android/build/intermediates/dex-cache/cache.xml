@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jar="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\classes-a1af1878f6e8d32e4344a49c71ffa682205b9bb4.jar" />
-    </item>
-    <item
-        jar="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\libs\nativescript.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="40373005d4576f2e18027bcb2460ba577ae3d4ea">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\nativescript-ddc151766cde4ccbadbedb7cfeb3e907e53f7597.jar" />
-    </item>
-    <item
-        jar="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-83ef9455b94ce537a9921a40b169bc3a1f998163.jar" />
-    </item>
-    <item
-        jar="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
+        revision="23.0.1"
         sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\classes-64ecc313230955147e4e15d8d842f33259c67664.jar" />
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\classes-c2f17b018a4d57d044933804b09c0b184379aebd.jar" />
     </item>
     <item
-        jar="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\libs\widgets.jar"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="dab3994e6354b233885a2834673e6fc968347762">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\widgets-e5c4b88986016d6811ad425da77059af44ca9ebc.jar" />
-    </item>
-    <item
-        jar="C:\Users\Oscar\AppData\Local\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
+        revision="23.0.1"
         sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\Oscar\Desktop\Branches\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-e286b1b2fc69d031c123b73c889f90d3f02627a7.jar" />
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-6afb30d34d8ee0256038e37cf43078b75d29b358.jar" />
+    </item>
+    <item
+        jar="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\libs\nativescript.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="40373005d4576f2e18027bcb2460ba577ae3d4ea">
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\nativescript-a54365126cc15994798cfd1cba1fbe63fb0476ac.jar" />
+    </item>
+    <item
+        jar="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-fb38801049e89a34fea39ce0163cac88dab3d87f.jar" />
+    </item>
+    <item
+        jar="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\classes-526122fd0f4fa18a3f0c926879159f0fa8eb344e.jar" />
+    </item>
+    <item
+        jar="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\libs\widgets.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="dab3994e6354b233885a2834673e6fc968347762">
+        <dex dex="C:\Users\odiaz\Desktop\Branches\tradepacks-updated\tradepacks\tradepacks\platforms\android\build\intermediates\pre-dexed\debug\widgets-319a3a146da31609593700812e40e6ccd491dd01.jar" />
     </item>
 
 </items>

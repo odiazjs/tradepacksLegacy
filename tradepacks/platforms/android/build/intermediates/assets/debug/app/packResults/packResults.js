@@ -22,7 +22,7 @@ function formatCards(cards) {
     var result = [];
 
     cards.forEach(function (card) {
-            
+
         var formattedCard = {
             attributes: []
         };
@@ -53,7 +53,7 @@ function formatCards(cards) {
         }
 
         result.push(formattedCard);
-    })
+    });
 
     return result;
 }

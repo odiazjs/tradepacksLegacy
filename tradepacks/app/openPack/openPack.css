@@ -126,3 +126,27 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.bronze {
+    background-image: url('res://bronzerare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.silver {
+    background-image: url('res://silverare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gold {
+    background-image: url('res://goldrare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.special {
+    background-image: url('res://special');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
