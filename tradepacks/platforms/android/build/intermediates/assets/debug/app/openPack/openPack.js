@@ -12,6 +12,7 @@ var obervableArrayModule = require('data/observable-array');
 var model = new obervableArrayModule.ObservableArray();
 
 var playersList = [];
+var packType = '';
 
 function pageLoaded(args) {
 
@@ -22,6 +23,11 @@ function pageLoaded(args) {
     openPackModel.set("packIsOpening", false);
     openPackModel.set("showPackWrapper", true);
     openPackModel.set("packHasOpened", false);
+
+    page.on("navigatedTo", function(eventData) {
+        packType = page.navigationContext;
+        openPackModel.set("packType", packType);
+    });
 
     var pack = page.getViewById("packWrapper");
     pack.animate({
@@ -42,7 +48,13 @@ exports.openPackEvent = function (args) {
     vibrator.vibration(100);
     openPackModel.set("packIsOpening", true);
 
-    var url = "http://gdsgt.net/getjson/json2.php?user=1&pack=3";
+    var packTypeDictionary = {};
+    packTypeDictionary['bronze'] = 1;
+    packTypeDictionary['silver'] = 2;
+    packTypeDictionary['gold'] = 3;
+    packTypeDictionary['special'] = 4;
+
+    var url = "http://gdsgt.net/getjson/json2.php?user=1&pack=" + packTypeDictionary[packType];
 
     http.getJSON(url).then(function (response) {
 
@@ -95,7 +107,7 @@ exports.viewAllEvent = function (args) {
         moduleName: "./packResults/packResults",
         context: playersList
     });
-}
+};
 
 function handlePackAnimation(args) {
 
@@ -202,7 +214,7 @@ function handlePackAnimation(args) {
                     pack.animate({
                         opacity: 1,
                         duration: 800
-                    }).then(function () {
+                    }).then(function() {
                         if (clubBadge) {
                             clubBadge.animate({
                                 opacity: 1,
@@ -211,7 +223,7 @@ function handlePackAnimation(args) {
                                     x: 0.6,
                                     y: 0.6
                                 }
-                            }).then(function () {
+                            }).then(function() {
                                 if (nation) {
                                     nation.animate({
                                         opacity: 1,
@@ -220,7 +232,7 @@ function handlePackAnimation(args) {
                                             x: 0.5,
                                             y: 0.5
                                         }
-                                    }).then(function () {
+                                    }).then(function() {
                                         if (position) {
                                             position.animate({
                                                 opacity: 1,
@@ -229,7 +241,7 @@ function handlePackAnimation(args) {
                                                     x: 1,
                                                     y: 1
                                                 }
-                                            }).then(function () {
+                                            }).then(function() {
                                                 if (rating) {
                                                     rating.animate({
                                                         opacity: 1,
@@ -238,7 +250,7 @@ function handlePackAnimation(args) {
                                                             x: 1,
                                                             y: 1
                                                         }
-                                                    }).then(function () {
+                                                    }).then(function() {
                                                         if (attrsLeft && attrsRight) {
                                                             attrsLeft.animate({
                                                                 opacity: 1,
@@ -247,7 +259,7 @@ function handlePackAnimation(args) {
                                                                     x: 1,
                                                                     y: 1
                                                                 }
-                                                            })
+                                                            });
                                                             attrsRight.animate({
                                                                 opacity: 1,
                                                                 duration: 500,
@@ -255,7 +267,7 @@ function handlePackAnimation(args) {
                                                                     x: 1,
                                                                     y: 1
                                                                 }
-                                                            }).then(function () {
+                                                            }).then(function() {
                                                                 if (headshot && name) {
                                                                     headshot.animate({
                                                                         opacity: 1,
@@ -264,7 +276,7 @@ function handlePackAnimation(args) {
                                                                             x: 1.3,
                                                                             y: 1.3
                                                                         }
-                                                                    })
+                                                                    });
                                                                     name.animate({
                                                                         opacity: 1,
                                                                         duration: 500,
@@ -272,7 +284,7 @@ function handlePackAnimation(args) {
                                                                             x: 1,
                                                                             y: 1
                                                                         }
-                                                                    })
+                                                                    });
                                                                     if (moreCardsBtn) {
                                                                         moreCardsBtn.animate({
                                                                             opacity: 1,
@@ -281,21 +293,21 @@ function handlePackAnimation(args) {
                                                                                 x: 1,
                                                                                 y: 1
                                                                             }
-                                                                        })
+                                                                        });
                                                                     }
                                                                 }
-                                                            })
+                                                            });
                                                         }
-                                                    })
+                                                    });
                                                 }
-                                            })
+                                            });
                                         }
-                                    })
+                                    });
                                 }
-                            })
+                            });
                         }
-                    })
-                })
+                    });
+                });
             });
         }
     }

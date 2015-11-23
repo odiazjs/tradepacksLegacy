@@ -1,7 +1,51 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout>
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
 
-    <Button text="OPEN PACK" tap="{{ openPack }}" />
+  <GridLayout
+    id="packOptions"
+    rows="150,150"
+    columns="150,150"
+    horizontalAlignment="center"
+    verticalAlignment="center">
 
-  </StackLayout>
+    <Image packType="bronze"
+           src="res://bronzerare" row="0" col="0" 
+           cssClass="pack-option-image"
+           tap="selectPack" />
+    
+    <Label text="BRONZE PACKS" row="0" col="0"
+               horizontalAlignment="center"
+               verticalAlignment="bottom"
+               cssClass="pack-label" />
+    
+    <Image packType="silver"
+           src="res://silverare" row="0" col="1" 
+           cssClass="pack-option-image"
+           tap="selectPack" />
+    
+    <Label text="SILVER PACKS" row="0" col="1"
+               horizontalAlignment="center"
+               verticalAlignment="bottom"
+               cssClass="pack-label" />
+    
+    <Image packType="gold"
+           src="res://goldrare" row="1" col="0" 
+           cssClass="pack-option-image"
+           tap="selectPack" />
+    
+    <Label text="GOLD PACKS" row="1" col="0"
+               horizontalAlignment="center"
+               verticalAlignment="bottom"
+               cssClass="pack-label" />
+    
+    <Image packType="special"
+           src="res://special" row="1" col="1" 
+           cssClass="pack-option-image"
+           tap="selectPack" />
+    
+    <Label text="SPECIAL PACKS" row="1" col="1"
+               horizontalAlignment="center"
+               verticalAlignment="bottom"
+               cssClass="pack-label" />
+
+  </GridLayout>
 </Page>
