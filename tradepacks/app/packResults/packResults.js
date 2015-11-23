@@ -14,24 +14,6 @@ function pageLoaded(args) {
 
     page.on("navigatedTo", function (eventData) {
         packResultsModel.cards = formatCards(page.navigationContext);
-
-        var clubBadge = view.getViewById(parent, "clubBadge");
-        var nation = view.getViewById(parent, "nation");
-
-        if (clubBadge && nation) {
-            clubBadge.animate({
-                scale: {
-                    x: 0.6,
-                    y: 0.6
-                }
-            });
-            nation.animate({
-                scale: {
-                    x: 0.5,
-                    y: 0.5
-                }
-            });
-        }
     });
 }
 
