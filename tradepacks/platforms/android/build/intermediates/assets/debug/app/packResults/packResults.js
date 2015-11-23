@@ -6,13 +6,11 @@ var view = require("ui/core/view");
 
 function pageLoaded(args) {
     var page = args.object;
-    var sender = args.object;
-    var parent = sender.parent;
 
     page.bindingContext = packResultsModel;
     page.addCssFile("packResults.css");
 
-    page.on("navigatedTo", function (eventData) {
+    page.on("navigatedTo", function () {
         packResultsModel.cards = formatCards(page.navigationContext);
     });
 }
@@ -24,7 +22,7 @@ function formatCards(cards) {
     cards.forEach(function (card) {
 
         var formattedCard = {
-            attributes: []
+            attributes: {}
         };
 
         formattedCard.rating = card.rating;
