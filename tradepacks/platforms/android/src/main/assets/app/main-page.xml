@@ -14,7 +14,7 @@
     <GridLayout
      id="topNav"
      rows="25,25,25"
-     columns="35,50"
+     columns="35,75"
      horizontalAlignment="left"
      verticalAlignment="top">
 

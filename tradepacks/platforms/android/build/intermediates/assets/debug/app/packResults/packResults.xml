@@ -4,8 +4,8 @@
 
 <GridLayout
     id="packWrapper"
-    rows="40,40,40,40,40,40"
-    columns="75,75,75,75"
+    rows="38,38,30,38,38,38"
+    columns="73,73,75,75"
     horizontalAlignment="left"
     verticalAlignment="center"
     cssClass="{{ color }}">
@@ -35,15 +35,15 @@
                />
 
         <Image id="headshot"
-               src="{{ headShotImgUrl }}" row="1" col="1"
+               src="{{ headShotImgUrl }}" row="1" col="1" rowspan="2"
                horizontalAlignment="center"
                cssClass="player-headshot"
                />
 
         <Label id="name"
-               text="{{ name }}" row="2" colspan="2"
-               stretch="none"
+               text="{{ name }}" row="2" colspan="2" rowspan="2"
                horizontalAlignment="center"
+               verticalAlignment="center"
                cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
                />
 
@@ -52,6 +52,7 @@
           rows="auto,auto,auto"
           columns="auto"
           row="3" col="0"
+          rowspan="2"
           horizontalAlignment="center"
           verticalAlignment="center"
           cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
@@ -64,6 +65,7 @@
                     rows="auto,auto,auto"
                     columns="auto"
                     row="3" col="1"
+                    rowspan="2"
                     horizontalAlignment="center"
                     verticalAlignment="center"
                     cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">

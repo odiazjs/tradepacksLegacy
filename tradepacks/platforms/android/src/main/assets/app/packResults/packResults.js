@@ -6,10 +6,9 @@ var view = require("ui/core/view");
 
 function pageLoaded(args) {
     var page = args.object;
-
     page.bindingContext = packResultsModel;
     page.addCssFile("packResults.css");
-
+       
     page.on("navigatedTo", function () {
         packResultsModel.cards = formatCards(page.navigationContext);
     });
