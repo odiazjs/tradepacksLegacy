@@ -151,3 +151,11 @@ button {
 .pack-option-image {
     margin: 0 0 20 0
 }
+
+.coins{
+    font-size: 16;
+    color: #000000;
+    font-weight: normal;
+    margin: 0 0 0 0;
+    opacity: 1.0;
+}

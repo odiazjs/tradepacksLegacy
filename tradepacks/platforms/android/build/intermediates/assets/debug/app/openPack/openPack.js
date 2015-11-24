@@ -48,7 +48,7 @@ exports.openPackEvent = function (args) {
     packTypeDictionary['gold'] = 3;
     packTypeDictionary['special'] = 4;
 
-    var url = "http://gdsgt.net/getjson/json2.php?user=1&pack=" + packTypeDictionary[packType];
+    var url = "http://gdsgt.net/getjson/api/get_players.php?user=1&pack=" + packTypeDictionary[packType];
 
     http.getJSON(url).then(function (response) {
 

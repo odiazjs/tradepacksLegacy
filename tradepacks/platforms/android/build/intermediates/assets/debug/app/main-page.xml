@@ -1,7 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
 
   <Page.actionBar>
-    <ActionBar title="" android.icon=""/>
+    <ActionBar title="" android.icon=""/> 
   </Page.actionBar>
 
   <GridLayout
@@ -13,13 +13,17 @@
 
     <GridLayout
      id="topNav"
-     rows="40,40,40"
-     columns="150,150"
-     horizontalAlignment="center"
+     rows="25,25,25"
+     columns="35,50"
+     horizontalAlignment="left"
      verticalAlignment="top">
 
       <Image src="res://coins" row="0" col="0" />
-
+      <Label text="{{ userInfo.coins }}" row="0" col="1"
+               horizontalAlignment="left"
+               verticalAlignment="center"
+               cssClass="coins" />
+      
     </GridLayout>
 
     <Image packType="bronze"

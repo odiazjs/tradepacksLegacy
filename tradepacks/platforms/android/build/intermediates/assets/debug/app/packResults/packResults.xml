@@ -4,9 +4,9 @@
 
 <GridLayout
     id="packWrapper"
-    rows="50,50,50,50,50,50"
-    columns="80,80"
-    horizontalAlignment="center"
+    rows="40,40,40,40,40,40"
+    columns="75,75,75,75"
+    horizontalAlignment="left"
     verticalAlignment="center"
     cssClass="{{ color }}">
 
@@ -47,12 +47,6 @@
                cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
                />
 
-        <ActivityIndicator id="packIsLoading"
-                           row="2" colspan="2"
-                           width="90" height="90"
-                           busy="{{ packIsOpening }}"
-                           cssClass="pack-opening" />
-
         <GridLayout
           id="attrsLeft"
           rows="auto,auto,auto"
@@ -78,11 +72,29 @@
           <Label text="{{ position == 'GK' ? attributes['pos'] + ' POS' :  attributes['phy'] + ' PHY' }}" row="2" col="0" horizontalAlignment="left"/>
         </GridLayout>
 
-        <ActivityIndicator row="2" colspan="2"
-                           width="90" height="90"
-                           busy="{{ packIsOpening }}"
-                           cssClass="pack-opening" />
-      </GridLayout>
+
+    <Button row="1" col="2" colspan="2"
+             text="STORE IN CLUB"
+             tap="storeOne"
+             horizontalAlignment="right"
+             cssClass="btn-options"
+              />
+
+    <Button row="2" col="2" colspan="2"
+             text="LIST ON MARKET"
+             tap="listOnMarket"
+             horizontalAlignment="right"
+             cssClass="btn-options"
+              />
+
+    <Button row="3" col="2" colspan="2"
+             text="DISCARD"
+             tap="discardOne"
+             horizontalAlignment="right"
+             cssClass="btn-options"
+              />
+  
+  </GridLayout>
       
     </ListView.itemTemplate>
   </ListView>

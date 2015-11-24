@@ -19,6 +19,16 @@
     margin: 5 5 5 5;
 }
 
+.btn-options {
+    font-size: 12;
+    color: #fff;
+    font-weight: 300;
+    width: 125;
+    height: 30;
+    background-color: #388295;
+    margin: 0 0 0 0;
+}
+
 .btn-more-cards {
     font-size: 14;
     color: #fff;
@@ -120,6 +130,31 @@
 
 .gold{
     background-image: url('res://gold');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.bronze{
+    background-image: url('res://bronze');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bronzerare{
+    background-image: url('res://bronzerare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.silver{
+    background-image: url('res://silver');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.silverare{
+    background-image: url('res://silverare');
     background-repeat: no-repeat;
     background-size: contain;
 }
