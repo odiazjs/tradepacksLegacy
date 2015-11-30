@@ -3,6 +3,8 @@ var obervableArrayModule = require('data/observable-array');
 var utils = new observableModule.Observable();
 var http = require('http');
 var model = new obervableArrayModule.ObservableArray();
+var frames = require('ui/frame');
+var topmost = frames.topmost();
 
 utils.getJSON = function(url) {
 
@@ -37,7 +39,7 @@ utils.postJSON = function (url, model) {
             response = JSON.stringify(response);
             response = JSON.parse(response);
             var content = response.content;
-            result = handleRequest(content);
+            result = handleRequest(response);
             return result;
         }
 
@@ -51,28 +53,11 @@ utils.postJSON = function (url, model) {
 
 function handleRequest(result){
 
-	var messageDto = {};
-
-	if(typeof result != "undefined" && result != null && result.status == "success"){
-
-	    messageDto = {
-	        message: result.message,
-	        cssClass: "success",
-	        show: true,
-	        status: result.status
-	    };
-
-	} else if (result != null) {
-
-	    messageDto = {
-	        message: result.message,
-	        cssClass: "error",
-	        show: true,
-	        status: result.status
-	    };
+	if (typeof result != "undefined" && result != null && result.statusCode == 200) {
+	    return result.content;
+	} else {
+	    topmost.navigate("main-page");
 	}
-	
-	return messageDto;
 };
 
 utils.getProperties = function(obj){

@@ -3,6 +3,14 @@ var appSettings = require("application-settings");
 var http = require('http');
 var utils = require('../shared/utils');
 var view = require("ui/core/view");
+var dialogs = require("ui/dialogs");
+var urlConfig = require('../shared/urlConfiguration');
+var frames = require('ui/frame');
+var topmost = frames.topmost();
+
+var platform = require("platform");
+var application = require("application");
+var dialog = require("nativescript-dialog");
 
 function pageLoaded(args) {
     var page = args.object;
@@ -31,6 +39,8 @@ function formatCards(cards) {
         formattedCard.headShotImgUrl = card.headshot_image;
         formattedCard.name = card.name != null ? card.name.toUpperCase() : card.name;
         formattedCard.color = card.color;
+        formattedCard.id = card.id;
+        formattedCard.discardprice = card.discardprice;
 
         if (card.position == "GK") {
             formattedCard.attributes["div"] = card.attributes["fut.attribute.DIV"];
@@ -55,4 +65,84 @@ function formatCards(cards) {
     return result;
 }
 
+exports.storePlayerInClub = function (args) {
+    var item = args.object.bindingContext;
+    var parent = args.object.parent.parent;
+    var card = view.getViewById(parent, item.id);
+        
+    //setTimeout(function () {
+    //    card.animate({
+    //        translate: {
+    //            x: -500,
+    //            y: 0
+    //        }, duration: 400
+    //    });
+    //}, 1000);
+        
+
+        setTimeout(function () {
+            var cards = packResultsModel.cards.filter(function (card) {
+                return card.id != item.id
+            });
+            packResultsModel.set("cards", cards);
+        }, 400);
+
+};
+
+function discardOne(args) {
+    var item = args.object.bindingContext;
+
+    dialogs.confirm({
+        title: "Discard Player",
+        message: "Are you sure you want to discard this player? You will receive " + item.discardprice + " coins.",
+        okButtonText: "Discard",
+        cancelButtonText: "Cancel"
+    }).then(function (result) {
+        if (result) {
+            var url = urlConfig.getUrl('discard_one_player');
+            var model = { 
+                user: 1, 
+                id: item.id 
+            };
+
+            utils.postJSON(url, model).then(function (response) {
+                if (response.mensaje == 'ok') {
+                    var cards = packResultsModel.cards.filter(function (card) {
+                        return card.id != item.id
+                    });
+                    packResultsModel.set("cards", cards);
+                } else {
+                    throw new 'Couldnt discard player at this time.';
+                }
+            });
+        }
+    });
+
+}
+
+function discardAll(args) {
+    var item = args.object.bindingContext;
+    var url = urlConfig.getUrl('discard_all');
+    var model = {
+        user: 1
+    };
+
+    utils.postJSON(url, model).then(function (response) {
+        if (response.mensaje == 'ok') {
+            packResultsModel.set("cards", []);
+            frames.topmost().navigate({
+                moduleName: "./main-page"
+            });
+        } else {
+            frames.topmost().navigate({
+                moduleName: "./main-page"
+            });
+            throw new 'Couldnt discard all players at this time.';
+        }
+    });
+
+}
+
 exports.pageLoaded = pageLoaded;
+exports.discardOne = discardOne;
+exports.discardAll = discardAll;

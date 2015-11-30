@@ -4,6 +4,8 @@ var http = require('http');
 var utils = require('../shared/utils');
 var view = require("ui/core/view");
 var frames = require('ui/frame');
+var topmost = frames.topmost();
+var urlConfig = require('../shared/urlConfiguration');
 
 var playersList = [];
 var packType = '';
@@ -48,10 +50,14 @@ exports.openPackEvent = function (args) {
     packTypeDictionary['gold'] = 3;
     packTypeDictionary['special'] = 4;
 
-    var url = "http://gdsgt.net/getjson/api/get_players.php?user=1&pack=" + packTypeDictionary[packType];
+    var model = {
+        user: 1,
+        pack: packTypeDictionary[packType]
+    }
 
-    http.getJSON(url).then(function (response) {
+    var url = urlConfig.getUrl('open_pack');
 
+    utils.postJSON(url, model).then(function (response) {
         playersList = [];
 
         if (typeof response != "undefined" && response != null) {
@@ -68,6 +74,8 @@ exports.openPackEvent = function (args) {
             openPackModel.headShotImgUrl = playersList[i].headshot_image;
             openPackModel.name = playersList[i].name.toUpperCase();
             openPackModel.color = playersList[i].color;
+            openPackModel.id = playersList[i].id;
+            openPackModel.discardprice = playersList[i].discardprice;
 
             if (playersList[i].position == "GK") {
                 openPackModel.attributes["div"] = playersList[i].attributes["fut.attribute.DIV"];
@@ -87,14 +95,14 @@ exports.openPackEvent = function (args) {
             }
 
             handlePackAnimation(args);
-
+        } else {
+            frames.topmost().navigate({
+                moduleName: "./main-page"
+            });
         }
 
-    }, function (ex) {
-        throw new "Unable to get pack (" + ex + ")";
     });
-
-};
+}
 
 exports.viewAllEvent = function (args) {
     frames.topmost().navigate({

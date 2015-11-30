@@ -1,7 +1,7 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
 
   <Page.actionBar>
-    <ActionBar title="" android.icon=""/> 
+    <ActionBar title="asdf" android.icon=""/> 
   </Page.actionBar>
 
   <GridLayout

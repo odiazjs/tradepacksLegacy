@@ -1,6 +1,7 @@
 ﻿var observableModule = require('data/observable');
 
 var openPackModel = {
+    id: 0,
     rating: 0,
     position: '',
     club: '',
@@ -12,6 +13,7 @@ var openPackModel = {
     color: '',
     attributes: [],
     packType: '',
+    discardprice: 15,
     packIsOpening: false,
     showPackWrapper: true,
     packHasOpened: false

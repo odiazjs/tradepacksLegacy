@@ -164,3 +164,7 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.bottomBtns{
+    margin: 20 0 10 0;
+}

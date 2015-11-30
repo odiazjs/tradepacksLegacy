@@ -1,103 +1,128 @@
 ﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
+
+<GridLayout id="{{ id }}" rows="480, auto, auto">  
   <ListView items="{{ cards }}">
     <ListView.itemTemplate>
 
-<GridLayout
-    id="packWrapper"
-    rows="38,38,30,38,38,38"
-    columns="73,73,75,75"
-    horizontalAlignment="left"
-    verticalAlignment="center"
-    cssClass="{{ color }}">
+  <GridLayout
+      rows="38,38,30,38,38,38"
+      columns="73,73,75,75"
+      horizontalAlignment="left"
+      verticalAlignment="center"
+      cssClass="{{ color }}">
 
-        <Label id="rating"
-               text="{{ rating }}" row="0" col="0"
-               horizontalAlignment="center"
-               cssClass="player-rating"
-               />
+          <Label id="rating"
+                 text="{{ rating }}" row="0" col="0"
+                 horizontalAlignment="center"
+                 cssClass="player-rating"
+                 />
 
-        <Label id="position"
-               text="{{ position }}" row="1" col="0"
-               horizontalAlignment="center"
-               cssClass="player-position"
-               />
+          <Label id="position"
+                 text="{{ position }}" row="1" col="0"
+                 horizontalAlignment="center"
+                 cssClass="player-position"
+                 />
 
-        <Image id="clubBadge"
-               src="{{ clubBadgeUrl }}" row="1" col="0"
-               horizontalAlignment="center"
-               cssClass="player-clubBadge"
-               />
+          <Image id="clubBadge"
+                 src="{{ clubBadgeUrl }}" row="1" col="0"
+                 horizontalAlignment="center"
+                 cssClass="player-clubBadge"
+                 />
 
-        <Image id="nation"
-               src="{{ nationFlagUrl }}" row="1" col="0"
-               horizontalAlignment="center"
-               cssClass="player-nation"
-               />
+          <Image id="nation"
+                 src="{{ nationFlagUrl }}" row="1" col="0"
+                 horizontalAlignment="center"
+                 cssClass="player-nation"
+                 />
 
-        <Image id="headshot"
-               src="{{ headShotImgUrl }}" row="1" col="1" rowspan="2"
-               horizontalAlignment="center"
-               cssClass="player-headshot"
-               />
+          <Image id="headshot"
+                 src="{{ headShotImgUrl }}" row="1" col="1" rowspan="2"
+                 horizontalAlignment="center"
+                 cssClass="player-headshot"
+                 />
 
-        <Label id="name"
-               text="{{ name }}" row="2" colspan="2" rowspan="2"
-               horizontalAlignment="center"
-               verticalAlignment="center"
-               cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
-               />
+          <Label id="name"
+                 text="{{ name }}" row="2" colspan="2" rowspan="2"
+                 horizontalAlignment="center"
+                 verticalAlignment="center"
+                 cssClass="{{ color == 'totwgold' ? 'totw-player-name' : 'player-name' }}"
+                 />
 
-        <GridLayout
-          id="attrsLeft"
-          rows="auto,auto,auto"
-          columns="auto"
-          row="3" col="0"
-          rowspan="2"
-          horizontalAlignment="center"
-          verticalAlignment="center"
-          cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
-          <Label text="{{ position == 'GK' ? attributes['div'] + ' DIV' :  attributes['pac'] + ' PAC' }}" row="0" col="0" horizontalAlignment="right"/>
-          <Label text="{{ position == 'GK' ? attributes['han'] + ' HAN' :  attributes['sho'] + ' SHO' }}" row="1" col="0" horizontalAlignment="right"/>
-          <Label text="{{ position == 'GK' ? attributes['kic'] + ' KIC' :  attributes['pas'] + ' PAS' }}" row="2" col="0" horizontalAlignment="right"/>
-        </GridLayout>
+          <GridLayout
+            id="attrsLeft"
+            rows="auto,auto,auto"
+            columns="auto"
+            row="3" col="0"
+            rowspan="2"
+            horizontalAlignment="center"
+            verticalAlignment="center"
+            cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
+            <Label text="{{ position == 'GK' ? attributes['div'] + ' DIV' :  attributes['pac'] + ' PAC' }}" row="0" col="0" horizontalAlignment="right"/>
+            <Label text="{{ position == 'GK' ? attributes['han'] + ' HAN' :  attributes['sho'] + ' SHO' }}" row="1" col="0" horizontalAlignment="right"/>
+            <Label text="{{ position == 'GK' ? attributes['kic'] + ' KIC' :  attributes['pas'] + ' PAS' }}" row="2" col="0" horizontalAlignment="right"/>
+          </GridLayout>
 
-        <GridLayout id="attrsRight"
-                    rows="auto,auto,auto"
-                    columns="auto"
-                    row="3" col="1"
-                    rowspan="2"
-                    horizontalAlignment="center"
-                    verticalAlignment="center"
-                    cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
-          <Label text="{{ position == 'GK' ? attributes['ref'] + ' REF' :  attributes['dri'] + ' DRI' }}" row="0" col="0" horizontalAlignment="left"/>
-          <Label text="{{ position == 'GK' ? attributes['spd'] + ' SPD' :  attributes['def'] + ' DEF' }}" row="1" col="0" horizontalAlignment="left"/>
-          <Label text="{{ position == 'GK' ? attributes['pos'] + ' POS' :  attributes['phy'] + ' PHY' }}" row="2" col="0" horizontalAlignment="left"/>
-        </GridLayout>
+          <GridLayout id="attrsRight"
+                      rows="auto,auto,auto"
+                      columns="auto"
+                      row="3" col="1"
+                      rowspan="2"
+                      horizontalAlignment="center"
+                      verticalAlignment="center"
+                      cssClass="{{ color == 'totwgold' ? 'totw-player-attrs' : 'player-attrs' }}">
+            <Label text="{{ position == 'GK' ? attributes['ref'] + ' REF' :  attributes['dri'] + ' DRI' }}" row="0" col="0" horizontalAlignment="left"/>
+            <Label text="{{ position == 'GK' ? attributes['spd'] + ' SPD' :  attributes['def'] + ' DEF' }}" row="1" col="0" horizontalAlignment="left"/>
+            <Label text="{{ position == 'GK' ? attributes['pos'] + ' POS' :  attributes['phy'] + ' PHY' }}" row="2" col="0" horizontalAlignment="left"/>
+          </GridLayout>
 
 
-    <Button row="1" col="2" colspan="2"
-             text="STORE IN CLUB"
-             tap="storeOne"
-             horizontalAlignment="right"
-             cssClass="btn-options"
-              />
+      <Button id="{{ 'store_' + id }}"
+               row="1" col="2" colspan="2"
+               text="STORE IN CLUB"
+               tap="storePlayerInClub"
+               horizontalAlignment="right"
+               cssClass="btn-options"
+                />
 
-    <Button row="2" col="2" colspan="2"
-             text="LIST ON MARKET"
-             tap="listOnMarket"
-             horizontalAlignment="right"
-             cssClass="btn-options"
-              />
+      <Button id="{{ 'list_' + id }}"
+               row="2" col="2" colspan="2"
+               text="LIST ON MARKET"
+               tap="listOnMarket"
+               horizontalAlignment="right"
+               cssClass="btn-options"
+                />
 
-    <Button row="3" col="2" colspan="2"
-             text="DISCARD"
-             tap="discardOne"
-             horizontalAlignment="right"
-             cssClass="btn-options"
-              />
+      <Button id="{{ 'discard_' + id }}"
+               row="3" col="2" colspan="2"
+               text="DISCARD"
+               tap="discardOne"
+               horizontalAlignment="right"
+               cssClass="btn-options"
+                />
   
-  </GridLayout>
+    </GridLayout>
       
     </ListView.itemTemplate>
   </ListView>
-</Page>
+
+    <Button id="discardAll"
+               row="1"
+               colspan="4"
+               text="DISCARD ALL"
+               tap="discardAll"
+               horizontalAlignment="center"
+               verticalAlignment="top"
+               cssClass="btn-options bottomBtns"/>
+
+    <Button id="storeAll"
+                 row="2"
+                 colspan="4"
+                 text="STORE ALL"
+                 tap="storeAll"
+                 horizontalAlignment="center"
+                 verticalAlignment="center"
+                 cssClass="btn-options bottomBtns"/>
+
+</GridLayout>
+
+        </Page>
