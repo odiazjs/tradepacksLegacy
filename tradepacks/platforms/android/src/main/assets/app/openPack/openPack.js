@@ -57,7 +57,7 @@ exports.openPackEvent = function (args) {
 
     var url = urlConfig.getUrl('open_pack');
 
-    utils.postJSON(url, model).then(function (response) {
+    utils.makeRequest(url, model, 'POST').then(function (response) {
         playersList = [];
 
         if (typeof response != "undefined" && response != null) {

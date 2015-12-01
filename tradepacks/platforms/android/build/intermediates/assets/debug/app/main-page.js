@@ -18,7 +18,7 @@ function pageLoaded(args) {
     var url = urlConfig.getUrl('user_info');
     var model = { user: 1 };
 
-    utils.postJSON(url, model).then(function (response) {
+    utils.makeRequest(url, model, 'POST').then(function (response) {
         if (typeof response != "undefined") {
             userInfoVM.username = response["FIRST_NAME"] + " " + response["LAST_NAME"];
             userInfoVM.coins = utils.parseThousand(response["COINS"]);

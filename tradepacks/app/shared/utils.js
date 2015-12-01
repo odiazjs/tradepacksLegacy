@@ -6,65 +6,60 @@ var model = new obervableArrayModule.ObservableArray();
 var frames = require('ui/frame');
 var topmost = frames.topmost();
 
-utils.getJSON = function(url) {
+utils.getJSON = function (url) {
 
     if (model.length > 0) {
         model.splice(0, model.length);
     }
 
-    http.getJSON(url).then(function(response) {
+    http.getJSON(url).then(function (response) {
 
         if (typeof response != "undefined" && response != null) {
-            response.forEach(function(item) {
+            response.forEach(function (item) {
                 model.push(item);
             });
         }
 
-    }, function(ex) {
-        console.log(ex);
+    }, function (ex) {
+        alert(ex);
+        console.log(e);
     });
 
     return model;
 };
 
-utils.postJSON = function (url, model) {
+utils.makeRequest = function (url, model, method) {
 
-    var result = http.request({
+    var request = http.request({
         url: url,
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: method,
+        headers: { "Content-Type": "application/json; charset=utf-8" },
         content: JSON.stringify(model)
-    }).then(function (response) {
-        if (typeof response != "undefined") {
-            response = JSON.stringify(response);
-            response = JSON.parse(response);
-            var content = response.content;
-            result = handleRequest(response);
-            return result;
-        }
-
-    }, function (ex) {
-        console.log("Error " + ex);
     });
 
+    var promise = request.then(handleRequest);
+    return (promise);
+
+};
+
+function handleRequest(result) {
+
+    if (typeof result != "undefined" && result != null && result.statusCode == 200) {
+        result = JSON.stringify(result);
+        result = JSON.parse(result);
+        return result.content;
+    } else {
+        topmost.navigate("main-page");
+    }
+
     return (result);
-
 };
 
-function handleRequest(result){
-
-	if (typeof result != "undefined" && result != null && result.statusCode == 200) {
-	    return result.content;
-	} else {
-	    topmost.navigate("main-page");
-	}
-};
-
-utils.getProperties = function(obj){
+utils.getProperties = function (obj) {
 
     var out = '';
     for (var i in obj) {
-        out = out+obj[i]+"-"; 	
+        out = out + obj[i] + "-";
     }
     return out;
 };
@@ -75,7 +70,7 @@ utils.parseDate = function (date) {
     return date;
 };
 
-utils.parseThousand = function(str) {
+utils.parseThousand = function (str) {
     return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 

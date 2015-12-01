@@ -9,6 +9,7 @@ urlConfig.getUrl = function (key) {
     urls["user_info"] = "http://gdsgt.net/getjson/api/get_user.php";
     urls["discard_one_player"] = "http://gdsgt.net/getjson/api/discard_one_player.php";
     urls["discard_all"] = "http://gdsgt.net/getjson/api/discard_players.php";
+    urls['players_by_user'] = 'http://gdsgt.net/getjson/api/get_players_from_user.php';
 
     return urls[key];
 };

@@ -5,7 +5,8 @@
             cssClass="menu-label"/>
     
     <Button col="1" text="MY CLUB"
-            cssClass="menu-label"/>
+            cssClass="menu-label"
+            tap="myClub" />
     
     <Button col="2" rowspan="2" text="BUY COINS" 
             cssClass="menu-label"/>

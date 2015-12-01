@@ -16,4 +16,10 @@ exports.browsePacks = function (args) {
     });
 };
 
+exports.myClub = function (args) {
+    frames.topmost().navigate({
+        moduleName: "./playersByUser/playersByUser"
+    });
+};
+
 exports.pageLoaded = pageLoaded;

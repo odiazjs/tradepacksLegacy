@@ -105,7 +105,7 @@ function discardOne(args) {
                 id: item.id 
             };
 
-            utils.postJSON(url, model).then(function (response) {
+            utils.makeRequest(url, model, 'POST').then(function (response) {
                 if (response.mensaje == 'ok') {
                     var cards = packResultsModel.cards.filter(function (card) {
                         return card.id != item.id;
@@ -138,7 +138,7 @@ function discardAll(args) {
         cancelButtonText: "Cancel"
     }).then(function (selection) {
         if (selection) {
-            utils.postJSON(url, model).then(function (response) {
+            utils.makeRequest(url, model, 'POST').then(function (response) {
                 if (response.mensaje == 'ok') {
                     packResultsModel.set("cards", []);
                     frames.topmost().navigate({
