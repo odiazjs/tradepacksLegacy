@@ -1,70 +1,74 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
 
   <Page.actionBar>
-    <ActionBar title="asdf" android.icon=""/> 
+    <ActionBar title="tradepacks" android.icon=""/> 
   </Page.actionBar>
 
   <GridLayout
     id="packOptions"
-    rows="150,150,150"
-    columns="150,150"
-    horizontalAlignment="center"
-    verticalAlignment="top">
+    rows="40, 520"
+    horizontalAlignment="center">
 
     <GridLayout
-     id="topNav"
-     rows="25,25,25"
-     columns="35,75"
-     horizontalAlignment="left"
-     verticalAlignment="top">
+    id="coins-container"
+    rows="30"
+    columns="90, 50, 60"
+    horizontalAlignment="center">
 
-      <Image src="res://coins" row="0" col="0" />
-      <Label text="{{ userInfo.coins }}" row="0" col="1"
+      <Label text="{{ userInfo.username }}" row="0" col="0"
+               horizontalAlignment="left"
+               verticalAlignment="center"
+               cssClass="username" />
+
+      <Image src="res://coins"
+             row="0" col="1"
+             horizontalAlignment="center"/>
+
+      <Label text="{{ userInfo.coins }}" row="0" col="2"
                horizontalAlignment="left"
                verticalAlignment="center"
                cssClass="coins" />
-      
+ 
     </GridLayout>
 
-    <Image packType="bronze"
-           src="res://bronzerare" row="1" col="0" 
-           cssClass="pack-option-image"
-           tap="selectPack" />
-    
-    <Label text="BRONZE PACKS" row="1" col="0"
-               horizontalAlignment="center"
-               verticalAlignment="bottom"
-               cssClass="pack-label" />
-    
-    <Image packType="silver"
-           src="res://silverare" row="1" col="1" 
-           cssClass="pack-option-image"
-           tap="selectPack" />
-    
-    <Label text="SILVER PACKS" row="1" col="1"
-               horizontalAlignment="center"
-               verticalAlignment="bottom"
-               cssClass="pack-label" />
-    
-    <Image packType="gold"
-           src="res://goldrare" row="2" col="0" 
-           cssClass="pack-option-image"
-           tap="selectPack" />
-    
-    <Label text="GOLD PACKS" row="2" col="0"
-               horizontalAlignment="center"
-               verticalAlignment="bottom"
-               cssClass="pack-label" />
-    
-    <Image packType="special"
-           src="res://special" row="2" col="1" 
-           cssClass="pack-option-image"
-           tap="selectPack" />
-    
-    <Label text="SPECIAL PACKS" row="2" col="1"
-               horizontalAlignment="center"
-               verticalAlignment="bottom"
-               cssClass="pack-label" />
+    <ListView items="{{ packOptions }}" row="1">
+      <ListView.itemTemplate tap="selectPack">
 
+        <GridLayout
+         rows="75, 75, 75"
+         columns="150,175"
+         horizontalAlignment="center"
+         tap="selectPack">
+
+          <Image id="{{ id }}"
+                 row="0" col="0" rowspan="3"
+                 src="{{ img }}"
+                 cssClass="pack-option-image"/>
+
+          <Label text="{{ display }}"
+                   row="0" col="1"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"
+                   cssClass="pack-label" />
+
+          <Label text="{{ desc1 }}"
+                       row="1" col="1"
+                       textWrap="true"
+                       horizontalAlignment="center"
+                       verticalAlignment="top"
+                       cssClass="pack-label"/>
+
+          <Label text="{{ desc2 }}"
+                       row="2" col="1"
+                       textWrap="true"
+                       horizontalAlignment="center"
+                       verticalAlignment="top"
+                       cssClass="pack-label"/>
+
+        </GridLayout>
+
+      </ListView.itemTemplate>
+    </ListView>
+    
   </GridLayout>
 </Page>

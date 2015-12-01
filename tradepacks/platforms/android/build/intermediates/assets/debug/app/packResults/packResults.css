@@ -165,6 +165,12 @@
     background-size: contain;
 }
 
-.bottomBtns{
-    margin: 20 0 10 0;
+.btn-bottom {
+    font-size: 12;
+    color: #fff;
+    font-weight: 300;
+    width: 275;
+    height: 30;
+    background-color: #d3ae37;
+    margin: 5 5 5 5;
 }

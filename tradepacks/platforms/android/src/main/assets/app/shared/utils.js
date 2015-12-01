@@ -75,4 +75,8 @@ utils.parseDate = function (date) {
     return date;
 };
 
+utils.parseThousand = function(str) {
+    return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 module.exports = utils;

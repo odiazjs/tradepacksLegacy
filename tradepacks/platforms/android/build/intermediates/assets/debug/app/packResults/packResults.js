@@ -108,7 +108,7 @@ function discardOne(args) {
             utils.postJSON(url, model).then(function (response) {
                 if (response.mensaje == 'ok') {
                     var cards = packResultsModel.cards.filter(function (card) {
-                        return card.id != item.id
+                        return card.id != item.id;
                     });
                     packResultsModel.set("cards", cards);
                 } else {
@@ -127,20 +127,32 @@ function discardAll(args) {
         user: 1
     };
 
-    utils.postJSON(url, model).then(function (response) {
-        if (response.mensaje == 'ok') {
-            packResultsModel.set("cards", []);
-            frames.topmost().navigate({
-                moduleName: "./main-page"
+    var totalDiscard = packResultsModel.cards.reduce(function(total, card) {
+        return total + parseInt(card.discardprice);
+    }, 0);
+
+    dialogs.confirm({
+        title: "Discard All Players",
+        message: "Are you sure you want to discard all players? You will receive " + utils.parseThousand(totalDiscard) + " coins.",
+        okButtonText: "Discard",
+        cancelButtonText: "Cancel"
+    }).then(function (selection) {
+        if (selection) {
+            utils.postJSON(url, model).then(function (response) {
+                if (response.mensaje == 'ok') {
+                    packResultsModel.set("cards", []);
+                    frames.topmost().navigate({
+                        moduleName: "./main-page"
+                    });
+                } else {
+                    frames.topmost().navigate({
+                        moduleName: "./main-page"
+                    });
+                    throw new 'Couldnt discard all players at this time.';
+                }
             });
-        } else {
-            frames.topmost().navigate({
-                moduleName: "./main-page"
-            });
-            throw new 'Couldnt discard all players at this time.';
         }
     });
-
 }
 
 exports.pageLoaded = pageLoaded;

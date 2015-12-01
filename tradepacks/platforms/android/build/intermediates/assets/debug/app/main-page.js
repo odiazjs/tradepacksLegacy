@@ -11,13 +11,17 @@ function pageLoaded(args) {
     var page = args.object;
     page.bindingContext = packOptionVM;
 
+    page.on("navigatedTo", function () {
+        page.bindingContext = packOptionVM;
+    });
+
     var url = urlConfig.getUrl('user_info');
     var model = { user: 1 };
 
     utils.postJSON(url, model).then(function (response) {
         if (typeof response != "undefined") {
             userInfoVM.username = response["FIRST_NAME"] + " " + response["LAST_NAME"];
-            userInfoVM.coins = response["COINS"];
+            userInfoVM.coins = utils.parseThousand(response["COINS"]);
             userInfoVM.lastPackNo = response["PACK_NO"];
             packOptionVM.userInfo = userInfoVM;
         } else {
@@ -30,11 +34,11 @@ function pageLoaded(args) {
 
 exports.selectPack = function (args) {
 
-    var packType = args['object']['packType'];
+    var item =  args.object.bindingContext;
     
     frames.topmost().navigate({
         moduleName: "./openPack/openPack",
-        context: packType
+        context: item.id
     });
 };
 

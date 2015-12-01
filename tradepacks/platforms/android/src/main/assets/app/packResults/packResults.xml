@@ -105,24 +105,29 @@
     </ListView.itemTemplate>
   </ListView>
 
+  <GridLayout
+      row="2"
+      rows="40,40"
+      horizontalAlignment="center"
+      verticalAlignment="center">
+  
     <Button id="discardAll"
-               row="1"
-               colspan="4"
+               row="0" col="0"
                text="DISCARD ALL"
                tap="discardAll"
                horizontalAlignment="center"
                verticalAlignment="top"
-               cssClass="btn-options bottomBtns"/>
+               cssClass="btn-bottom"/>
 
     <Button id="storeAll"
-                 row="2"
-                 colspan="4"
+                 row="1" col="0"
                  text="STORE ALL"
                  tap="storeAll"
                  horizontalAlignment="center"
                  verticalAlignment="center"
-                 cssClass="btn-options bottomBtns"/>
+                 cssClass="btn-bottom"/>
 
+  </GridLayout>
 </GridLayout>
 
         </Page>

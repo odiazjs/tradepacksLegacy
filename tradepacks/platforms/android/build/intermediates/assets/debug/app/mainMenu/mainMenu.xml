@@ -1,0 +1,22 @@
+﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+
+  <GridLayout columns="120, 120, 120" rows="160, 160, 160" >
+    <Button col="0" text="MY PACKS" 
+            cssClass="menu-label"/>
+    
+    <Button col="1" text="MY CLUB"
+            cssClass="menu-label"/>
+    
+    <Button col="2" rowspan="2" text="BUY COINS" 
+            cssClass="menu-label"/>
+    
+    <Button row="1" colSpan="2" rowspan="2" 
+            text="BROWSE PACKS" 
+            cssClass="menu-label browse-packs"
+            tap="browsePacks"/>
+    
+    <Button row="2" col="2" text="MY SQUAD" 
+            cssClass="menu-label"/>
+  </GridLayout>
+
+</Page>
