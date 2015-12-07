@@ -2,31 +2,19 @@
       xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded"
       actionBarHidden="true">
 
-  <drawer:RadSideDrawer id="SideDrawer">
+  <drawer:RadSideDrawer id="sideDrawer">
     <drawer:RadSideDrawer.drawerTransition>
       <drawer:SlideInOnTopTransition/>
     </drawer:RadSideDrawer.drawerTransition>
     <drawer:RadSideDrawer.drawerContent>
       <GridLayout rows="*, auto">
-        <StackLayout style="background-color: #053140;">
+        <StackLayout style="background-color: #d6d6d6;">
           <Image src="res://logo" cssClass="slide-out-img" stretch="none" />
-          <Button tap="selectView" tag="0" cssClass="{{ selectedViewIndex === 0 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="My agenda" />
-          <Button tap="selectView" tag="1" cssClass="{{ selectedViewIndex === 1 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="All sessions" />
-          <Button tap="selectView" tag="2" cssClass="{{ selectedViewIndex === 2 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="Workshop Hackaton" />
-          <Button tap="selectView" tag="3" cssClass="{{ selectedViewIndex === 3 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="What's NEXT" />
-          <Button tap="selectView" tag="4" cssClass="{{ selectedViewIndex === 4 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="Sponsors" />
-        </StackLayout>
-        <StackLayout style="background-color: #053140;" row="1">
-          <Label tap="goToUrl" tag="http://www.nativescript.org" cssClass="slide-out-btn-about">
-            <Label.formattedText>
-              <FormattedString>
-                <FormattedString.spans>
-                  <Span text="Created with " />
-                  <Span text="NativeScript" fontAttributes="Bold"  />
-                </FormattedString.spans>
-              </FormattedString>
-            </Label.formattedText>
-          </Label>
+          <Button tap="selectView" tag="0" cssClass="{{ selectedViewIndex === 0 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="MY PACKS" />
+          <Button tap="selectView" tag="1" cssClass="{{ selectedViewIndex === 1 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="BUY COINS" />
+          <Button tap="selectView" tag="2" cssClass="{{ selectedViewIndex === 2 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="BROWSE PACKS" />
+          <Button tap="selectView" tag="3" cssClass="{{ selectedViewIndex === 3 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="MY CLUB" />
+          <Button tap="selectView" tag="4" cssClass="{{ selectedViewIndex === 4 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="MY SQUAD" />
         </StackLayout>
       </GridLayout>
     </drawer:RadSideDrawer.drawerContent>
@@ -35,9 +23,9 @@
       <GridLayout rows="auto, *">
         <!-- Header -->
         <StackLayout cssClass="page-header">
-          <GridLayout cssClass="action-bar darker">
-            <GridLayout cssClass="action-wrap" tap="showSlideout" columns="auto" horizontalAlignment="left">
-              <Image stretch="none" cssClass="icon-image" src="res://ic_menu"/>
+          <GridLayout cssClass="action-bar lighter" horizontalAlignment="left">
+            <GridLayout cssClass="action-wrap" tap="openSideDrawer" columns="auto" horizontalAlignment="left">
+              <Image cssClass="icon-image" src="res://drawericon"/>
             </GridLayout>
             <Label text="{{ actionBarTitle }}" cssClass="action-bar-title" />
           </GridLayout>

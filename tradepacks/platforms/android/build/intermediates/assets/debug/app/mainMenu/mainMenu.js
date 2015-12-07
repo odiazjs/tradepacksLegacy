@@ -23,4 +23,9 @@ exports.myClub = function (args) {
     });
 };
 
+exports.openSideDrawer = function(args) {
+    var drawer = frames.topmost().getViewById("sideDrawer");
+    drawer.showDrawer();
+};
+
 exports.pageLoaded = pageLoaded;

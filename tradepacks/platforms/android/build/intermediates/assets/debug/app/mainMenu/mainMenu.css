@@ -1,6 +1,7 @@
 ﻿.menu-label {
     font-family: monospace;
     font-size: 22;
+    color: white;
 }
 
 .browse-packs {
@@ -22,7 +23,7 @@
 
 /* Page */
 Page {
-    background-color: white;
+    background-color: #232323;
 }
 
 SegmentedBar {
@@ -36,8 +37,8 @@ SegmentedBar {
 }
 
 .slide-out-btn-about {
-    color: #576a72;
-    background-color: #053140;
+    color: #232323;
+    background-color: #d6d6d6;
     font-size: 12;
     text-align: left;
     margin: 12;
@@ -47,7 +48,7 @@ SegmentedBar {
 
 .slide-out-btn {
     color: #e4ba4e;
-    background-color: #053140;
+    background-color: #d6d6d6;
     font-size: 14;
     height: 48;
     text-align: left;
@@ -55,8 +56,8 @@ SegmentedBar {
 }
 
 .slide-out-btn-selected {
-    color: white;
-    background-color: #053140;
+    color: #232323;
+    background-color: #d6d6d6;
     font-size: 14;
     height: 48;
     text-align: left;
@@ -77,6 +78,10 @@ SegmentedBar {
 
 .darker {
     background-color: #55000000;
+}
+
+.lighter {
+    background-color: #d6d6d6;
 }
 
 .page-header {
