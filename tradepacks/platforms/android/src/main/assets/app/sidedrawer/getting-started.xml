@@ -1,0 +1,22 @@
+<Page loaded="pageLoaded" xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns="http://www.nativescript.org/tns.xsd">
+  <drawer:RadSideDrawer>
+    <drawer:RadSideDrawer.mainContent>
+      <StackLayout >
+        <Label text="{{ mainContentText }}" textWrap="true"/>
+      </StackLayout>
+    </drawer:RadSideDrawer.mainContent>
+    <drawer:RadSideDrawer.drawerContent>
+      <StackLayout cssClass="drawerContent">
+        <StackLayout cssClass="headerContent">
+          <Label text="Header"/>
+        </StackLayout>
+        <StackLayout cssClass="drawerMenuContent">
+          <Label text="Item 1"/>
+          <Label text="Item 2"/>
+          <Label text="Item 3"/>
+          <Label text="Item 4"/>
+        </StackLayout>
+      </StackLayout>
+    </drawer:RadSideDrawer.drawerContent>
+  </drawer:RadSideDrawer>
+</Page>

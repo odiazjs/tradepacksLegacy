@@ -1,16 +1,15 @@
-﻿var playerByUserModel = require('./playersByUserVM');
+﻿var playersByUserModel = require('./playersByUserVM');
 var layout = require("ui/layouts/grid-layout");
 var frames = require('ui/frame');
 var topmost = frames.topmost();
-
+var serviceModule = require("../shared/serviceModule");
+var playersByUserViewModel = require("./players-by-user-view-model");
+var viewModel = new playersByUserViewModel.MyClubViewModel();
 
 function pageLoaded(args) {
     var page = args.object;
-    page.bindingContext = playerByUserModel;
+    viewModel.refresh();
+    page.bindingContext = viewModel;
 }
-
-exports.changeTab = function (args) {
-    alert(this);
-};
 
 exports.pageLoaded = pageLoaded;

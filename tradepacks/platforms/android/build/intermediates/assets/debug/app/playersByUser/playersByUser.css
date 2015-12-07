@@ -1,2 +1,176 @@
-﻿body {
+﻿.bg {
+    background-color: #f4f4f4;
+}
+
+.coins-text {
+    font-size: 14;
+    color: #000;
+    font-weight: 300;
+    margin: 10 0 10 0;
+}
+
+.btn-open {
+    font-size: 14;
+    color: #fff;
+    font-weight: 300;
+    width: 200;
+    height: 35;
+    background-color: #388295;
+    margin: 5 5 5 5;
+}
+
+.btn-options {
+    font-size: 12;
+    color: #fff;
+    font-weight: 300;
+    width: 125;
+    height: 30;
+    background-color: #388295;
+    margin: 0 0 0 0;
+}
+
+.btn-more-cards {
+    font-size: 14;
+    color: #fff;
+    font-weight: 300;
+    width: 200;
+    height: 35;
+    background-color: #388295;
+    margin: 5 5 5 5;
+}
+
+.pack-opening {
+    margin: 5 5 5 5;
+}
+
+.player-rating {
+    font-size: 18;
+    color: #000000;
+    font-weight: bolder;
+    margin: 13 0 0 0;
+    opacity: 1.0;
+}
+
+.player-position {
+    font-size: 12;
+    color: #000000;
+    font-weight: bold;
+    margin: -7 0 0 0;
+    opacity: 1.0;
+}
+
+.player-name {
+    font-size: 14;
+    color: #000000;
+    font-weight: bold;
+    margin: 18 0 0 0;
+    opacity: 1.0;
+}
+
+.totw-player-name {
+    font-size: 14;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 18 0 0 0;
+    opacity: 1.0;
+}
+
+.player-clubBadge {
+    height: 22;
+    width: 22;
+    margin: 20 0 0 0;
+    opacity: 1.0;
+}
+
+.player-nation {
+    height: 30;
+    width: 35;
+    margin: 10 0 -60 0;
+    opacity: 1.0;
+}
+
+.player-headshot{
+    margin: 0 10 -15 0;
+    opacity: 1.0;
+}
+
+.player-attrs {
+    font-size: 14;
+    color: #000000;
+    font-weight: bold;
+    margin: 20 0 0 0;
+    opacity: 1.0;
+}
+
+.totw-player-attrs{
+    font-size: 14;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 20 0 0 0;
+    opacity: 1.0;
+}
+
+.legend{
+    background-image: url('res://legend');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.totwgold{
+    background-image: url('res://goldinform');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.raregold{
+    background-image: url('res://goldrare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gold{
+    background-image: url('res://gold');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.bronze{
+    background-image: url('res://bronze');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bronzerare{
+    background-image: url('res://bronzerare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.silver{
+    background-image: url('res://silver');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.silverare{
+    background-image: url('res://silverare');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.wrapper-bg{
+    background-image: url('res://wrapper');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btn-bottom {
+    font-size: 12;
+    color: #fff;
+    font-weight: 300;
+    width: 275;
+    height: 30;
+    background-color: #d3ae37;
+    margin: 5 5 5 5;
 }

@@ -123,8 +123,14 @@ function discardOne(args) {
 function discardAll(args) {
     var item = args.object.bindingContext;
     var url = urlConfig.getUrl('discard_all');
+
+    var playerIds = packResultsModel.cards.map(function (item) {
+        return item.id;
+    });
+
     var model = {
-        user: 1
+        user: 1,
+        playerIds: playerIds.join()
     };
 
     var totalDiscard = packResultsModel.cards.reduce(function(total, card) {

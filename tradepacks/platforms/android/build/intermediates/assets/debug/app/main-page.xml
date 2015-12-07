@@ -1,10 +1,11 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" cssClass="bg">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded"
+       cssClass="bg" actionBarHidden="true">
 
   <Page.actionBar>
     <ActionBar title="tradepacks" android.icon=""/> 
   </Page.actionBar>
 
-  <GridLayout
+    <GridLayout
     id="packOptions"
     rows="40, 520"
     horizontalAlignment="center">

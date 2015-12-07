@@ -1,23 +1,68 @@
-﻿<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+﻿<Page xmlns="http://www.nativescript.org/tns.xsd" 
+      xmlns:drawer="nativescript-telerik-ui/sidedrawer" loaded="pageLoaded"
+      actionBarHidden="true">
 
-  <GridLayout columns="120, 120, 120" rows="160, 160, 160" >
-    <Button col="0" text="MY PACKS" 
-            cssClass="menu-label"/>
-    
-    <Button col="1" text="MY CLUB"
-            cssClass="menu-label"
-            tap="myClub" />
-    
-    <Button col="2" rowspan="2" text="BUY COINS" 
-            cssClass="menu-label"/>
-    
-    <Button row="1" colSpan="2" rowspan="2" 
-            text="BROWSE PACKS" 
-            cssClass="menu-label browse-packs"
-            tap="browsePacks"/>
-    
-    <Button row="2" col="2" text="MY SQUAD" 
-            cssClass="menu-label"/>
-  </GridLayout>
+  <drawer:RadSideDrawer id="SideDrawer">
+    <drawer:RadSideDrawer.drawerTransition>
+      <drawer:SlideInOnTopTransition/>
+    </drawer:RadSideDrawer.drawerTransition>
+    <drawer:RadSideDrawer.drawerContent>
+      <GridLayout rows="*, auto">
+        <StackLayout style="background-color: #053140;">
+          <Image src="res://logo" cssClass="slide-out-img" stretch="none" />
+          <Button tap="selectView" tag="0" cssClass="{{ selectedViewIndex === 0 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="My agenda" />
+          <Button tap="selectView" tag="1" cssClass="{{ selectedViewIndex === 1 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="All sessions" />
+          <Button tap="selectView" tag="2" cssClass="{{ selectedViewIndex === 2 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="Workshop Hackaton" />
+          <Button tap="selectView" tag="3" cssClass="{{ selectedViewIndex === 3 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="What's NEXT" />
+          <Button tap="selectView" tag="4" cssClass="{{ selectedViewIndex === 4 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="Sponsors" />
+        </StackLayout>
+        <StackLayout style="background-color: #053140;" row="1">
+          <Label tap="goToUrl" tag="http://www.nativescript.org" cssClass="slide-out-btn-about">
+            <Label.formattedText>
+              <FormattedString>
+                <FormattedString.spans>
+                  <Span text="Created with " />
+                  <Span text="NativeScript" fontAttributes="Bold"  />
+                </FormattedString.spans>
+              </FormattedString>
+            </Label.formattedText>
+          </Label>
+        </StackLayout>
+      </GridLayout>
+    </drawer:RadSideDrawer.drawerContent>
 
+    <drawer:RadSideDrawer.mainContent>
+      <GridLayout rows="auto, *">
+        <!-- Header -->
+        <StackLayout cssClass="page-header">
+          <GridLayout cssClass="action-bar darker">
+            <GridLayout cssClass="action-wrap" tap="showSlideout" columns="auto" horizontalAlignment="left">
+              <Image stretch="none" cssClass="icon-image" src="res://ic_menu"/>
+            </GridLayout>
+            <Label text="{{ actionBarTitle }}" cssClass="action-bar-title" />
+          </GridLayout>
+
+          <GridLayout columns="120, 120, 120" rows="160, 160, 160" >
+            <Button col="0" text="MY PACKS"
+                    cssClass="menu-label"/>
+
+            <Button col="1" text="MY CLUB"
+                    cssClass="menu-label"
+                    tap="myClub" />
+
+            <Button col="2" rowspan="2" text="BUY COINS"
+                    cssClass="menu-label"/>
+
+            <Button row="1" colSpan="2" rowspan="2"
+                    text="BROWSE PACKS"
+                    cssClass="menu-label browse-packs"
+                    tap="browsePacks"/>
+
+            <Button row="2" col="2" text="MY SQUAD"
+                    cssClass="menu-label"/>
+          </GridLayout>
+        </StackLayout>
+      </GridLayout>
+    </drawer:RadSideDrawer.mainContent>
+  </drawer:RadSideDrawer>
 </Page>
